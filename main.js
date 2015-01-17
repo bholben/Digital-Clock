@@ -1,7 +1,7 @@
 
 (function () {
 
-  var secondsTime;
+  var secondsTime, hour, min, sec;
 
 
   /**
@@ -39,12 +39,10 @@
 
 
   /**
-   * Convert total seconds to HH:MM:SS format.
+   * Convert seconds time to hour, min, sec.
    * @param {number} secondsTime up to to 43,200.
-   * @return {string} HH:MM:SS format.
    */
-  var formatTime = function (secondsTime) {
-    var hour, min, sec;
+  var toHMS = function (secondsTime) {
 
     // Convert from secondsTime to HH:MM:SS.
     hour = parseInt(secondsTime / (60 * 60));
@@ -58,9 +56,29 @@
 
     // If hour is 0, show it as a 12.
     hour = hour === '00' ? 12 : hour;
+  };
 
+
+  /**
+   * Convert seconds time to HH:MM:SS format.
+   * @param {number} secondsTime up to to 43,200.
+   * @return {string} HH:MM:SS format.
+   */
+  var formatTime = function (secondsTime) {
+    var HMS = toHMS(secondsTime);
     return String(hour) + ':' + String(min) + ':' + String(sec);
   };
+
+
+  /**
+   * Convert seconds time to #RRGGBB format.
+   * @param {number} secondsTime up to to 43,200.
+   * @return {string} #RRGGBB format.
+   */
+  var formatRGB = function (secondsTime) {
+    var HMS = toHMS(secondsTime);
+    return '#' + hour + min + sec;
+  }
 
 
   /**
@@ -79,6 +97,9 @@
 
     // Display updated time in browser.
     elem.textContent = formatTime(secondsTime);
+
+    // Adust the background color to reflect the time converted to #RRGGBB.
+    elem.style.backgroundColor = formatRGB(secondsTime);
   };
 
 
