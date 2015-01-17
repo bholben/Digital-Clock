@@ -10,9 +10,9 @@
    * @return {number} seconds time up to to 86,400.
    */
   var toSecondsTime = function (formattedTime) {
-    var hour = Number(formattedTime.substring(0, 2));
-    var min = Number(formattedTime.substring(3, 5));
-    var sec = Number(formattedTime.substring(6, 8));
+    var hour = Number(formattedTime.substring(0, 2)),
+        min = Number(formattedTime.substring(3, 5)),
+        sec = Number(formattedTime.substring(6, 8));
     return (60 * 60 * hour) + (60 * min) + (sec);
   };
 
@@ -22,8 +22,8 @@
    * @return {number} time of day in total seconds.
    */
   var getCurrentTime = function () {
-    var dateNow = new Date();
-    var timeNow24 = dateNow.toLocaleTimeString('en-GB');
+    var dateNow = new Date(),
+        timeNow24 = dateNow.toLocaleTimeString('en-GB');
     return toSecondsTime(timeNow24);
   };
 
