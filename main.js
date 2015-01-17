@@ -1,8 +1,7 @@
 
 (function () {
 
-  var clockTag = document.getElementById('clock'),
-      secondsTime;
+  var secondsTime;
 
 
   /**
@@ -19,7 +18,7 @@
 
 
   /**
-   * Pull current time from Date() and convert to seconds time.
+   * Pull current time from the local system and convert to seconds time.
    * @return {number} time of day in total seconds.
    */
   var getCurrentTime = function () {
@@ -68,14 +67,18 @@
    * Increment secondsTime by 1 second.
    */
   var timeStep = function () {
-    // At 43,200 seconds, reset to 0.
-    secondsTime = secondsTime === 12 * 60 * 60 ? 0 : secondsTime;
-    // Increment by 1.
-    secondsTime++
-    // Display in browser.
-    clockTag.textContent = formatTime(secondsTime);
 
-    // console.log(Date.now()/1000);
+    var elem = document.getElementById('clock'),
+        halfDay = 12 * 60 * 60;  // seconds in 12 hours
+
+    // Convert secondsTime to a 12-hour clock.
+    secondsTime = secondsTime >= halfDay ? secondsTime - halfDay : secondsTime;
+
+    // Increment by 1 second.
+    secondsTime++
+
+    // Display updated time in browser.
+    elem.textContent = formatTime(secondsTime);
   };
 
 
@@ -91,10 +94,10 @@
    * Capture the current time when program starts, then internally
    * increment the clock thereafter and update the display in the browser.
    */
-   var main = function () {
+  var main = function () {
     secondsTime = getCurrentTime();
     tick();
-   };
+  };
 
 
   // Kick off the program.
