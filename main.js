@@ -11,8 +11,8 @@
    */
   var toSecondsTime = function (formattedTime) {
     var hour = Number(formattedTime.substring(0, 2)),
-        min = Number(formattedTime.substring(3, 5)),
-        sec = Number(formattedTime.substring(6, 8));
+        min  = Number(formattedTime.substring(3, 5)),
+        sec  = Number(formattedTime.substring(6, 8));
     return (60 * 60 * hour) + (60 * min) + (sec);
   };
 
@@ -43,18 +43,18 @@
    * @param {number} secondsTime up to to 43,200.
    * @return {string} HH:MM:SS format.
    */
-   var formatTime = function (secondsTime) {
+  var formatTime = function (secondsTime) {
     var hour, min, sec;
 
     // Convert from secondsTime to HH:MM:SS.
-    hour = parseInt(secondsTime / (60 * 60))
+    hour = parseInt(secondsTime / (60 * 60));
     min  = parseInt(secondsTime / 60) - (hour * 60);
     sec  = secondsTime % 60;
 
     // Add a leading zero if a single digit.
     hour = zeroPad(hour);
-    min = zeroPad(min);
-    sec = zeroPad(sec);
+    min  = zeroPad(min);
+    sec  = zeroPad(sec);
 
     // If hour is 0, show it as a 12.
     hour = hour === '00' ? 12 : hour;
