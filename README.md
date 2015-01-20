@@ -1,5 +1,7 @@
 ## Clock
 
+Deliverable: [http://bholben.github.io/Digital-Clock/](http://bholben.github.io/Digital-Clock/)
+
 Create a JavaScript clock you see in basic.gif.
 Note it does not need to be the same font, just look similiar.
 Have fun with the design.
