@@ -96,7 +96,10 @@
     secondsTime++
 
     // Display updated time in browser.
-    elem.textContent = formatTime(secondsTime);
+    // elem.textContent = formatTime(secondsTime);
+
+    // Display updated time in browser using hex format.
+    elem.textContent = formatRGB(secondsTime);
 
     // Adust the background color to reflect the time converted to #RRGGBB.
     elem.style.backgroundColor = formatRGB(secondsTime);
