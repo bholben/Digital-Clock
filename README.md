@@ -1,11 +1,19 @@
+
 ## Clock
 
-Deliverable: [http://bholben.github.io/Digital-Clock/](http://bholben.github.io/Digital-Clock/)
+[Assignment #7 (part 3)](https://github.com/tiy-atl-js-q1-2015/Assignments) from [The Iron Yard's](http://theironyard.com/locations/atlanta/) 12-week Front End Engineering bootcamp Q1 2015.  
 
-Create a JavaScript clock you see in basic.gif.
-Note it does not need to be the same font, just look similiar.
-Have fun with the design.
+A clock converted to hex values and dynamically adjusting the screen background  
 
+### Deliverable
+[http://bholben.github.io/Digital-Clock/](http://bholben.github.io/Digital-Clock/)  
 
-After you have done that, modify it show as a hex color and on each second tick, change the background color. See hex.gif below for reference.
+### Technologies
+  * HTML
+  * CSS
+  * JavaScript
+
+### How to use it
+
+From command line:  
 
